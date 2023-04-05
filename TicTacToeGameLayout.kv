@@ -1,0 +1,116 @@
+<TicTacToeSquare@Button>:
+    text: ""
+    font_name: 'Arilon'
+    on_press: app.on_tt_press(self)
+    font_size: '72dp'
+    color: '#555555'
+    background_color: 1, 1, 1, 1
+    background_disabled_normal: ''
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: 0.75, 0.75, 0.75, 1
+        Line:
+            width: 1
+            rectangle: self.x, self.y, self.width, self.height
+    disabled: True
+
+MDBoxLayout:
+    orientation: 'vertical'
+    spacing: 20
+    padding: 20
+    MDLabel:
+        id: player
+        text: " "
+        halign: 'center'
+        font_style: "H4"
+        font_name: 'Arilon'
+        font_size: '60dp'
+        size_hint_y: None
+        height: self.texture_size[1]
+        padding_y: 10
+    MDRaisedButton:
+        id: start_game_multi
+        text: "Play with a Friend"
+        pos_hint: {'center_x': 0.5}
+        padding: 15
+        font_name: 'Arilon'
+        font_size: '35dp'
+        on_press: app.start_game(self, game_mode='multi_player')
+    MDRaisedButton:
+        id: start_game_single
+        text: "Play with a computer"
+        pos_hint: {'center_x': 0.5}
+        padding: 15
+        font_name: 'Arilon'
+        font_size: '35dp'
+        on_press: app.start_game(self, game_mode='single_player')
+    MDLabel:
+        text: ''
+    MDFloatLayout:
+        id: floaty
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        MDGridLayout:
+            id: game_board
+            cols: 3
+            rows: 3
+            size_hint: None, None
+            width: 300
+            height: 300
+            pos_hint: {'center_x': 0.5, 'center_y':0.5}
+            TicTacToeSquare:
+                id: btn1
+                name: 'btn1'
+            TicTacToeSquare:
+                id: btn2
+                name: 'btn2'
+            TicTacToeSquare:
+                id: btn3
+                name: 'btn3'
+            TicTacToeSquare:
+                id: btn4
+                name: 'btn4'
+            TicTacToeSquare:
+                id: btn5
+                name: 'btn5'
+            TicTacToeSquare:
+                id: btn6
+                name: 'btn6'
+            TicTacToeSquare:
+                id: btn7
+                name: 'btn7'
+            TicTacToeSquare:
+                id: btn8
+                name: 'btn8'
+            TicTacToeSquare:
+                id: btn9
+                name: 'btn9'
+    MDLabel:
+        text: ''
+    MDRaisedButton:
+        id: reset
+        text: "Reset"
+        pos_hint: {'center_x': 0.5}
+        padding_y: 15
+        font_name: 'Arilon'
+        font_size: '35dp'
+        on_press: app.reset(self)
+    MDBoxLayout:
+        id: scores
+        orientation: 'horizontal'
+        size_hint: 1, 0.5
+        padding_y: 0
+        MDLabel:
+            id: score_1
+            text: 'Player X: 0'
+            halign: 'center'
+            font_name: 'Arilon'
+            font_size: '30dp'
+        MDLabel:
+            id: score_2
+            text: 'Player O: 0'
+            halign: 'center'
+            font_name: 'Arilon'
+            font_size: '30dp'
+
+
